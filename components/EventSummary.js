@@ -1,19 +1,20 @@
 import React from 'react';
-import { Image as ImageComponent, Item } from 'semantic-ui-react'
+import { Image, Header, Grid, Label } from 'semantic-ui-react'
 
 const EventSummary = (props) => {
-    const { name, startdate, description, image="" } = props
+    const { name, startdate, description, image="", isfree } = props
     return (
-        <Item.Group>
-            <Item.Image size='massive' src={image} />
-            <Item>
-            <Item.Content>
-                <Item.Header>{name}</Item.Header>
-                <Item.Meta>{startdate}</Item.Meta>
-                <Item.Description>{description}</Item.Description>
-            </Item.Content>
-            </Item>
-        </Item.Group>
+        <React.Fragment>
+            <Grid>
+                <Grid.Column width={8}>
+                    <Image size='massive' src={image} />
+                </Grid.Column>
+                <Grid.Column width={4}>
+                    <Header as="h1">{name}</Header>
+                        <Label as='a' color={isfree ? "red" : ""} tag>{isfree ? "Free" : "Paid"}</Label>
+                </Grid.Column>
+            </Grid>
+        </React.Fragment>
     )
 }
 
