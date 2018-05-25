@@ -5,7 +5,7 @@ import EventDescription from '../components/EventDescription';
 
 const EventPage = (props) => {
     return (
-        <Layout title={`${props.events.name.text} in MemphisHub`}>
+        <Layout title={`${props.events.name.text} | MemphisHub`}>
             <p>{JSON.stringify(props.events, '\t', 2)}</p>
             <EventSummary 
                 name={props.events.name.text}
