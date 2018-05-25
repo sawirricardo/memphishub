@@ -4,9 +4,14 @@
   "description": "A webApp for events update",
   "main": "index.js",
   "dependencies": {
+    "isomorphic-unfetch": "^2.0.0",
+    "jsonp": "^0.2.1",
     "next": "^6.0.3",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "semantic-ui-react": "^0.80.0"
   },
   "devDependencies": {},
   "scripts": {

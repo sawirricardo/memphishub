@@ -1,6 +1,7 @@
 import React from 'react';
-import Layout from '../components/Layout'
-import EventSummary from '../components/EventSummary'
+import Layout from '../components/Layout';
+import EventSummary from '../components/EventSummary';
+import EventDescription from '../components/EventDescription';
 
 const EventPage = (props) => {
     return (
@@ -9,8 +10,11 @@ const EventPage = (props) => {
             <EventSummary 
                 name={props.events.name.text}
                 startdate={props.events.start.local}
-                description={props.events.description.text} 
+                isfree={props.events.is_free}
                 image={props.events.logo.url}
+            />
+            <EventDescription 
+                description={props.events.description.text} 
             />
         </Layout>
     )
