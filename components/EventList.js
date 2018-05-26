@@ -1,16 +1,14 @@
 import Link from 'next/link';
 import { Item , Label, Container, Card } from 'semantic-ui-react';
 import EventCard from './EventCard';
-import "isomorphic-unfetch";
 
 const EventList = ({events}) => {
 
     return (
-            <Card.Group itemsPerRow={3}>
+            <Card.Group stackable itemsPerRow={4}>
             {events.map((event, i) => {
                     if (events[i].logo != null) {
                         return (
-                            
                                 <EventCard
                                     key={events[i].id}
                                     eventid={events[i].id}
@@ -18,6 +16,7 @@ const EventList = ({events}) => {
                                     description={events[i].description.text}
                                     startdate={events[i].start.local}
                                     image={events[i].logo.url}
+                                    isfree={events[i].is_free}
                                 />
                             
                         )
@@ -30,6 +29,7 @@ const EventList = ({events}) => {
                                 description={events[i].description.text}
                                 startdate={events[i].start.local}
                                 image=""
+                                isfree={events[i].is_free}
                             />
                         ) 
                     }
