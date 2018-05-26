@@ -17,6 +17,8 @@ const EventList = ({events}) => {
                                     startdate={events[i].start.local}
                                     image={events[i].logo.url}
                                     isfree={events[i].is_free}
+                                    venue={events[i].venue_id}
+                                    organizer={events[i].organizer_id}
                                 />
                             
                         )
@@ -30,6 +32,8 @@ const EventList = ({events}) => {
                                 startdate={events[i].start.local}
                                 image=""
                                 isfree={events[i].is_free}
+                                venue={events[i].venue_id}
+                                organizer={events[i].organizer_id}
                             />
                         ) 
                     }

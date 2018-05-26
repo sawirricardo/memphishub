@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Header, Button, Icon, Image } from 'semantic-ui-react';
 
 const Jumbotron = () => (
-    <Container style={{paddingTop: "10em", paddingBottom:"10em"}}>
+    <Container style={{paddingTop: "1em", paddingBottom:"5em"}}>
         <Image src="" fluid/>
         <Container text>
             <Header

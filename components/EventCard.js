@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Icon, Button } from 'semantic-ui-react';
+import { Card, Image, Icon, Button, Label } from 'semantic-ui-react';
 import Link from 'next/link';
 
 const EventCard = (props) => {
@@ -11,9 +11,17 @@ const EventCard = (props) => {
     return (
         <Link href={`/event?id=${eventid}`} passHref>
         <Card as="a">
-            <Image src={image} />
+            <Image 
+                src={image}
+                label={{
+                    color:`${isfree ? "red" : "yellow"}`,
+                    content:`${isfree ? "Free" : "Paid"}`, 
+                    ribbon: true
+                }}
+            />
             <Card.Content>
             <Card.Header>{eventname}</Card.Header>
+            <Card.Header as="h3">{TheDateWhenTheEventStart}</Card.Header>
             <Card.Meta>
                 <span>{TheDateWhenTheEventStart}</span>
             </Card.Meta>
@@ -21,11 +29,9 @@ const EventCard = (props) => {
                 {`${description.substr(0, 100)}...`}
             </Card.Description>
             </Card.Content>
-            <Card.Content extra>
-                <Button as="a">
-                    Learn More
-                </Button>
-            </Card.Content>
+            <Button fluid>
+                Learn More
+            </Button>
         </Card>
         </Link>
     );

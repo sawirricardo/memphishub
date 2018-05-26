@@ -13,13 +13,14 @@ import EventDescription from '../components/EventDescription';
 const EventPage = (props) => {
     return (
         <Layout title={`${props.events.name.text} | MemphisHub`}>
-            <p>{JSON.stringify(props)}</p>
             <EventSummary 
                 name={props.events.name.text}
                 startdate={props.events.start.local}
+                enddate={props.events.end.local}
                 isfree={props.events.is_free}
                 image={props.events.logo.url}
                 organizer={props.events.organizer_id}
+                venue={props.events.venue_id}
             />
             <EventDescription 
                 description={props.events.description.text} 
@@ -37,14 +38,5 @@ EventPage.getInitialProps = async ({query:{id}}) => {
 
     return { events: json };
 };
-
-// EventPage.getInitialProps = async ({ events: { organizer_id } }) => {
-
-//     const res = await fetch(
-//         `https://www.eventbriteapi.com/v3/organizers/${organizer_id}/?token=EUIWCJ4L7GSSIWXCPBCK`
-//     );
-//     const json = await res.json();
-//     return { organizerid: json };
-// };
 
 export default EventPage;
