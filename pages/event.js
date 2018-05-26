@@ -3,17 +3,12 @@ import Layout from '../components/Layout';
 import EventSummary from '../components/EventSummary';
 import EventDescription from '../components/EventDescription';
 
-// const getOrganizerName = async (props) => {
-//     const organizerFromAPI = await fetch(`https://www.eventbriteapi.com/v3/organizers/${props.events.organizer_id}/?token=EUIWCJ4L7GSSIWXCPBCK`);
-//     const organizerJson = await organizerFromAPI.json();
-//     return 
-// }
-
 
 const EventPage = (props) => {
     return (
         <Layout title={`${props.events.name.text} | MemphisHub`}>
             <EventSummary 
+                eventid={props.events.id}
                 name={props.events.name.text}
                 startdate={props.events.start.local}
                 enddate={props.events.end.local}
