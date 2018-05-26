@@ -2,11 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { Image, Header, Grid, Label, Button, Modal } from 'semantic-ui-react'
 import MailchimpForRegisteringEvents from './MailchimpForRegisteringEvents';
+import EventTicket from './EventTicket';
 
 class EventSummary extends React.Component {
     constructor(props) {
         super(props);
         this.state={
+            id:props.eventid || "",
             name:props.name || "",
             startdate:props.startdate || "",
             enddate: props.enddate || "",
@@ -30,7 +32,7 @@ class EventSummary extends React.Component {
             
     
     render() {
-        const { name, startdate, enddate, description, image, isfree, organizer, venue } = this.state;
+        const { name, startdate, enddate, description, image, isfree, organizer, venue, id } = this.state;
 
         const getDateWhenTheEventStart = new Date(Date.parse(startdate));
         const TheDateWhenTheEventStart = getDateWhenTheEventStart.toDateString();
@@ -50,6 +52,9 @@ class EventSummary extends React.Component {
                         <Header as="h3">{`${TheDateWhenTheEventStart} | ${organizer}`}</Header>
                         <p>{`${venue.name}, ${venue.address != null? venue.address.address_1 : "Online"}`}</p>
                         <Label color={isfree ? "red" : "yellow"} tag>{isfree ? "Free" : "Paid"}</Label>
+                        <EventTicket 
+                            id={id}
+                        />
                     </Grid.Column>
                 </Grid>
             </React.Fragment>
