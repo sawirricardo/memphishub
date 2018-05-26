@@ -48,7 +48,7 @@ class HeaderBar extends React.Component{
                 >
                     <Menu
                         borderless
-                        fixed={menuFixed && 'top'}
+                        fixed={menuFixed && 'Top'}
                         style={menuFixed ? fixedMenuStyle : menuStyle}
                         inverted
                     >
