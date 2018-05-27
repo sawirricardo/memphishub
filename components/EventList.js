@@ -15,6 +15,7 @@ const EventList = ({events}) => {
                                     eventname={events[i].name.text}
                                     description={events[i].description.text}
                                     startdate={events[i].start.local}
+                                    enddate={events[i].end.local}
                                     image={events[i].logo.url}
                                     isfree={events[i].is_free}
                                     venue={events[i].venue_id}
@@ -30,7 +31,8 @@ const EventList = ({events}) => {
                                 eventname={events[i].name.text}
                                 description={events[i].description.text}
                                 startdate={events[i].start.local}
-                                image=""
+                                enddate={events[i].end.local}
+                                image="http://musclecarevents.org/wp-content/uploads/2016/07/NoImageAvailable.jpg"
                                 isfree={events[i].is_free}
                                 venue={events[i].venue_id}
                                 organizer={events[i].organizer_id}
