@@ -14,7 +14,7 @@ const EventPage = (props) => {
                 startdate={props.events.start.local}
                 enddate={props.events.end.local}
                 isfree={props.events.is_free}
-                image={props.events.logo.url}
+                image={props.events.logo != null ? props.events.logo.url : "http://musclecarevents.org/wp-content/uploads/2016/07/NoImageAvailable.jpg"}
                 organizer={props.events.organizer_id}
                 venue={props.events.venue_id}
             />
@@ -22,7 +22,7 @@ const EventPage = (props) => {
                 eventid={props.events.id}
             />
             <EventDescription 
-                description={props.events.description.text} 
+                description={props.events.description.html} 
             />
             <EventMap
                 venue={props.events.venue_id}

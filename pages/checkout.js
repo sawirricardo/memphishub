@@ -3,13 +3,20 @@ import Link from 'next/link';
 import 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import MailchimpForRegisteringEvents from "../components/MailchimpForRegisteringEvents";
-import {Button, Icon, Message } from 'semantic-ui-react';
+import {Button, Icon, Message, Table } from 'semantic-ui-react';
 
 const Checkout = (props) => {
     return (
         <Layout title={`${props.events.name.text} | MemphisHub`}>
             <h1>{props.events.name.text}</h1>
-            <MailchimpForRegisteringEvents 
+            <Table>
+                <Table.Header>
+                    <Table.Row>
+                    <Table.HeaderCell colSpan='3'>Registration Information</Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                <MailchimpForRegisteringEvents 
                 action="https://github.us18.list-manage.com/subscribe/post?u=fb17d3eb8c27deaae717f1c3f&amp;id=6709edd83c"
                 fields={[
                     {
@@ -32,7 +39,9 @@ const Checkout = (props) => {
                     }
                 ]}
                 eventid={props.events.id}
-            />
+                />
+                </Table.Body>
+            </Table>
         </Layout>
     )
 }

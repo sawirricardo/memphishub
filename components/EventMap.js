@@ -51,7 +51,7 @@ class EventMap extends React.Component {
 
     render() {
         console.log(this.state.venue)
-        if (this.state.venue != undefined) {
+        if (this.state.venue != undefined || this.state.venue != null || this.state.event !='') {
             return (
             <EventLocation 
                 isMarkerShown

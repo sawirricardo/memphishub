@@ -1,6 +1,6 @@
 import React from 'react';
 import Router from "next/router";
-import { Button, Form, Header, Grid, Input, Segment, Message } from 'semantic-ui-react'
+import { Button, Form, Header, Grid, Input, Segment, Message, Table } from 'semantic-ui-react'
 import jsonp from "jsonp"
 import PropTypes from 'prop-types';
 
@@ -51,6 +51,7 @@ class MailchimpForRegisteringEvents extends React.Component {
                     <input type="email" name="email" style={{display: "none"}} />
                     <input type="password" name="password" style={{display: "none"}} />
                         {fields.map(input =>
+                            <Table.Row>
                             <Form.Field key={Math.random()} >
                             <Header as="h3" key={Math.random()}>{input.name}</Header>
                             <Input key={Math.random()}
@@ -62,6 +63,7 @@ class MailchimpForRegisteringEvents extends React.Component {
                                 size="large"
                             />
                             </Form.Field>
+                            </Table.Row>
                         )}
                         <Button
                             color="green"
