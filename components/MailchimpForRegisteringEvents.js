@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from "next/router";
 import { Button, Form, Header, Grid, Input, Segment } from 'semantic-ui-react'
 import jsonp from "jsonp"
 import PropTypes from 'prop-types';
@@ -33,9 +34,12 @@ class MailchimpForRegisteringEvents extends React.Component {
                 this.setState({ status: 'error' });
             } else {
                 this.setState({ status: 'success' });
+                Router.push(`/success?registereventid=${this.props.eventid}`);
             };
         });
     }
+
+
 
     render() {
         const { messages, fields, styles, className } = this.props;
@@ -43,8 +47,9 @@ class MailchimpForRegisteringEvents extends React.Component {
         return (
             
                 <Form onSubmit={this.handleSubmit.bind(this)} className={className} size="large">
-                    <Form.Field>
                         {fields.map(input =>
+                            <Form.Field key={Math.random()}>
+                            <Header as="h3" key={Math.random()}>{input.name}</Header>
                             <Input key={Math.random()}
                                 onBlur={({ target }) => this.setState({ [input.name]: target.value })}
                                 placeholder={input.placeholder}
@@ -53,12 +58,10 @@ class MailchimpForRegisteringEvents extends React.Component {
                                 defaultValue={this.state[input.name]} 
                                 size="large"
                             />
+                            </Form.Field>
                         )}
-                    </Form.Field>
-                    
                         <Button
-                            fluid
-                            color="blue"
+                            color="green"
                             disabled={status === "sending" || status === "success"}
                             type="submit"
                         >
@@ -81,11 +84,11 @@ class MailchimpForRegisteringEvents extends React.Component {
 MailchimpForRegisteringEvents.defaultProps = {
     messages: {
         sending: "Sending...",
-        success: "Thank you for subscribing!",
+        success: "Success!",
         error: "An unexpected internal error has occurred.",
-        empty: "You must write an e-mail.",
+        empty: "You haven't completed the forms yet",
         duplicate: "Too many subscribe attempts for this email address",
-        button: 'Subscribe!'
+        button: 'Submit!'
     },
     styles: {
         sendingMsg: {

@@ -1,28 +1,38 @@
 import React from 'react';
 import Link from 'next/link';
-
+import 'isomorphic-unfetch';
 import Layout from '../components/Layout';
-
+import MailchimpForRegisteringEvents from "../components/MailchimpForRegisteringEvents";
 import {Button, Icon, Message } from 'semantic-ui-react';
 
 const Checkout = (props) => {
     return (
         <Layout title={`${props.events.name.text} | MemphisHub`}>
-            <p>{JSON.stringify(props)}</p>
             <h1>{props.events.name.text}</h1>
-            <Link href={`/success?registereventid=${props.events.id}`} prefetch passHref>
-                <Button positive>
-                    Submit Form
-                </Button>
-            </Link>
-            <Link href={`/event?id=${props.events.id}`} prefetch passHref>
-                <Button>
-                    Cancel
-                </Button>
-            </Link>
-            <Message positive>
-                <Message.Header>Great! Can't wait to see ya!</Message.Header>
-            </Message>
+            <MailchimpForRegisteringEvents 
+                action="https://github.us18.list-manage.com/subscribe/post?u=fb17d3eb8c27deaae717f1c3f&amp;id=6709edd83c"
+                fields={[
+                    {
+                        name: 'EMAIL',
+                        placeholder: 'Youremail@email.com',
+                        type: 'email',
+                        required: true
+                    },
+                    {
+                        name: 'FIRSTNAME',
+                        placeholder: 'First Name',
+                        type: 'text',
+                        required: true
+                    },
+                    {
+                        name: 'LASTNAME',
+                        placeholder: 'Last Name',
+                        type: 'text',
+                        required: true
+                    }
+                ]}
+                eventid={props.events.id}
+            />
         </Layout>
     )
 }

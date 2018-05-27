@@ -4,6 +4,7 @@ import EventList from '../components/EventList';
 import Mailchimp from '../components/Mailchimp';
 import Jumbotron from '../components/Jumbotron';
 import { Container } from 'semantic-ui-react';
+
 const Home = () => (
     <React.Fragment>
         <Layout title="MemphisHub">
