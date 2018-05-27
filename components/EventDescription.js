@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Header, Container } from 'semantic-ui-react';
 
 
 const EventDescription = (props) => {
@@ -7,8 +7,10 @@ const EventDescription = (props) => {
     
     return (
         <React.Fragment>
-            <Header as="h3">About this Event</Header>
-            <p>{description}</p>
+            <Container text>
+                <Header as="h3">About this Event</Header>
+                {description}
+            </Container>
         </React.Fragment>
     )
 }

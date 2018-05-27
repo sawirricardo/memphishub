@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import EventSummary from '../components/EventSummary';
 import EventDescription from '../components/EventDescription';
+import EventActionSection from '../components/EventActionSection';
 
 
 const EventPage = (props) => {
@@ -16,6 +17,9 @@ const EventPage = (props) => {
                 image={props.events.logo.url}
                 organizer={props.events.organizer_id}
                 venue={props.events.venue_id}
+            />
+            <EventActionSection
+                eventid={props.events.id}
             />
             <EventDescription 
                 description={props.events.description.text} 

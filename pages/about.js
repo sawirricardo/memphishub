@@ -1,6 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../components/Layout';
-import { Container } from 'semantic-ui-react';
+import { Container, Button } from 'semantic-ui-react';
 
 const About = () => {
     return (
@@ -38,6 +39,11 @@ const About = () => {
             believe, is essential for forging any genuine and lasting
             possibility for thriving in our cities.
           </p>
+          <Link href={`/contactus`} prefetch passHref>
+            <Button>
+              Give us a shout!
+            </Button>
+          </Link>
         </Container>
       </Layout>
     );
