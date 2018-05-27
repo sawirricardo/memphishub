@@ -20,8 +20,8 @@ const EventLocation = compose(
 )((props) => {
     const lat = Number(props.lat);
     const lng = Number(props.lng);
-    console.log(lat,lng)
-    if ( lat != NaN ) {
+    console.log(lat, lng);
+    if (lat != NaN) {
         return (
             <GoogleMap
                 defaultZoom={8}
@@ -30,14 +30,7 @@ const EventLocation = compose(
                 {props.isMarkerShown && <Marker position={{ lat: lat, lng: lng }} />}
             </GoogleMap>
         )
-    } else {
-        return (
-            <React.Fragment>
-                <h1>Loading</h1>
-            </React.Fragment>
-        )
-    }
-    
+    }  
 })
 
 class EventMap extends React.Component {
@@ -57,13 +50,23 @@ class EventMap extends React.Component {
     }
 
     render() {
-        return (
+        console.log(this.state.venue)
+        if (this.state.venue != undefined) {
+            return (
             <EventLocation 
                 isMarkerShown
                 lat={this.state.venue.latitude}
                 lng={this.state.venue.longitude}
             />
-        )
+            )
+        } else {
+            return (
+                <React.Fragment>
+                    <h1>Loading</h1>
+                </React.Fragment>
+            )
+        }
+        
     }
 }
 
