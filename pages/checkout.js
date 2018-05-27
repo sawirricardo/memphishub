@@ -13,7 +13,7 @@ const Checkout = (props) => {
                 action="https://github.us18.list-manage.com/subscribe/post?u=fb17d3eb8c27deaae717f1c3f&amp;id=6709edd83c"
                 fields={[
                     {
-                        name: 'E-mail',
+                        name: 'EMAIL',
                         placeholder: '',
                         type: 'email',
                         required: true

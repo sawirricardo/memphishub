@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import EventSummary from '../components/EventSummary';
 import EventDescription from '../components/EventDescription';
 import EventActionSection from '../components/EventActionSection';
-
+import EventMap from '../components/EventMap';
 
 const EventPage = (props) => {
     return (
@@ -23,6 +23,9 @@ const EventPage = (props) => {
             />
             <EventDescription 
                 description={props.events.description.text} 
+            />
+            <EventMap
+                venue={props.events.venue_id}
             />
         </Layout>
     )

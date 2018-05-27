@@ -19,7 +19,7 @@ class MailchimpForRegisteringEvents extends React.Component {
         const path = `${action}&${values}`;
         const url = path.replace('/post?', '/post-json?');
         const regex = /^([\w_\.\-\+])+\@([\w\-]+\.)+([\w]{2,10})+$/;
-        const email = this.state['E-mail'];
+        const email = this.state['EMAIL'];
         console.log(email);
         (!regex.test(email)) ? this.setState({ status: "empty" }) : this.sendData(url);
     };
