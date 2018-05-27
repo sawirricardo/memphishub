@@ -8,7 +8,7 @@ const EventActionSection = (props) => {
         <Segment>
             <Link href={`/checkout?eventid=${props.eventid}`} prefetch passHref>
                 <Button as="a" primary>
-                    I'm in! <Icon name='chevron right' />
+                    Join this event <Icon name='chevron right' />
                 </Button>
             </Link>
         </Segment>
