@@ -36,9 +36,9 @@ class EventSummary extends React.Component {
                         <Image size='massive' src={image} fluid/>
                     </Grid.Column>
                     <Grid.Column floated="right" width={6}>
-                        <Header as="h1">{name}</Header>
+                        <Header as="h1" dividing>{name}</Header>
                         <Header as="h3">{organizer != null ? `Organized by ${organizer}` : ""}</Header>
-                        <Header as="h3">{moment(getDateWhenTheEventStart).fromNow()} more</Header>
+                        <Header as="h3">Happening {moment(getDateWhenTheEventStart).fromNow()}</Header>
                         <Label color={isfree ? "red" : "yellow"} tag>{isfree ? "Free" : "Paid"}</Label>
                     </Grid.Column>
                 </Grid>

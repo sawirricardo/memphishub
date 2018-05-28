@@ -46,7 +46,7 @@ class EventListPopular extends React.Component {
                 <Grid>
                     <Grid.Row>   
                         <Container textAlign='center'>
-                            <Header as="h1" >Popular Events in Memphis</Header> 
+                            <Header as="h1">Popular Events in Memphis</Header> 
                         </Container>
                     </Grid.Row>
                     <Grid.Row>  

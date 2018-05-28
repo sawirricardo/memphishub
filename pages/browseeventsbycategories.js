@@ -10,7 +10,7 @@ const BrowseEventsByCategories = ( props ) => {
     return(
         <Layout title={`${events.pagination.object_count}Events in Memphis`}>
             <Header as="h1">
-                Showing {areThereMuchEvents ? events.pagination.page_size : events.pagination.object_count  } events from { events.pagination.object_count} total events</Header>
+                Showing {areThereMuchEvents ? events.pagination.page_size : events.pagination.object_count} events from { events.pagination.object_count} total events</Header>
             <EventList events={events.events} />
         </Layout>
     )

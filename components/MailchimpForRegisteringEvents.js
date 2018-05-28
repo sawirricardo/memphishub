@@ -78,13 +78,7 @@ class MailchimpForRegisteringEvents extends React.Component {
                                 {status === "error" && <p>{messages.error}</p>}
                             </Message>
                         </Container>
-                    {/* <Form.Field className='msg-alert' >
-                        {status === "sending" && <p style={styles.sendingMsg}>{messages.sending}</p>}
-                        {status === "success" && <p style={styles.successMsg}>{messages.success}</p>}
-                        {status === "duplicate" && <p style={styles.duplicateMsg}>{messages.duplicate}</p>}
-                        {status === "empty" && <p style={styles.errorMsg}>{messages.empty}</p>}
-                        {status === "error" && <p style={styles.errorMsg}>{messages.error}</p>}
-                    </Form.Field> */}
+                    
                 </Form>
             
         );
@@ -93,34 +87,10 @@ class MailchimpForRegisteringEvents extends React.Component {
 
 MailchimpForRegisteringEvents.defaultProps = {
     messages: {
-        sending: "Sending...",
-        success: "Success!",
         error: "An unexpected internal error has occurred. Please try again later",
         empty: "You haven't completed the forms yet",
         duplicate: "Too many subscribe attempts for this email address",
         button: 'Submit this form!'
-    },
-    styles: {
-        sendingMsg: {
-            color: '#0652DD',
-            textAlign:"center",
-            paddingTop:"1.5em"
-        },
-        successMsg: {
-            color: '#009432',
-            textAlign: "center",
-            paddingTop: "1.5em"
-        },
-        duplicateMsg: {
-            color: '#EE5A24',
-            textAlign: "center",
-            paddingTop: "1.5em"
-        },
-        errorMsg: {
-            color: '#ED4C67',
-            textAlign: "center",
-            paddingTop: "1.5em"
-        }
     }
 }
 

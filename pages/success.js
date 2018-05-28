@@ -14,7 +14,7 @@ const SuccessPage = (props) => {
                 header='Success!'
                 content={`You'll receive a follow-up email from ${props.events.name.text}`}
             />
-            <Link href={`/browseevents`} prefetch passHref>
+            <Link href={`/browsecategories`} prefetch passHref>
                 <Button>
                     Browse more Events
                 </Button>
