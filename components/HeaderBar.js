@@ -65,8 +65,8 @@ class HeaderBar extends React.Component{
                     <Link href='/about' prefetch passHref>
                         <Menu.Item as='a' header>About</Menu.Item>
                     </Link>
-                    <Link href='/browseevents' prefetch passHref>
-                        <Menu.Item as='a' header>Browse Events</Menu.Item>
+                            <Link href='/browsecategories' passHref>
+                        <Menu.Item as='a' header>Browse Categories</Menu.Item>
                     </Link>
                     </Container>
                 </Menu>

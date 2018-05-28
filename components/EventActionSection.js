@@ -1,17 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
-import { Segment, Button, Icon } from 'semantic-ui-react';
+import {  Button, Icon, Grid } from 'semantic-ui-react';
 
 
 const EventActionSection = (props) => {
     return (
-        <Segment>
-            <Link href={`/checkout?eventid=${props.eventid}`} prefetch passHref>
-                <Button as="a" primary>
-                    Join this event <Icon name='chevron right' />
-                </Button>
-            </Link>
-        </Segment>
+        <React.Fragment>
+            <Grid>
+                <Grid.Column floated='left' width={5}>
+                    <Link href={`/checkout?eventid=${props.eventid}`} prefetch passHref>
+                        <Button as="a" primary>
+                            Join this event <Icon name='chevron right' />
+                        </Button>
+                    </Link>
+                </Grid.Column>
+            </Grid>
+        </React.Fragment>
     )
 }
 

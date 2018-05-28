@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { Item , Label, Container, Card } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import EventCard from './EventCard';
 
-const EventList = ({events}) => {
-
+const EventList = ( {events} ) => {
+    
     return (
         <Card.Group stackable itemsPerRow={4}>
         {events.map((event, i) => {

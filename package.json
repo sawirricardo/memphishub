@@ -1,11 +1,12 @@
 {
   "name": "memphishub",
   "version": "1.0.0",
-  "description": "A webApp for events update",
+  "description": "A webApp for events update dedicated to Memphis, TN",
   "main": "index.js",
   "dependencies": {
     "isomorphic-unfetch": "^2.0.0",
     "jsonp": "^0.2.1",
+    "moment": "^2.22.1",
     "next": "^6.0.3",
     "nprogress": "^0.2.0",
     "prop-types": "^15.6.1",
@@ -23,6 +24,6 @@
     "build": "next build",
     "start": "next start"
   },
-  "author": "",
+  "author": "Ricardo Sawir",
   "license": "ISC"
 }

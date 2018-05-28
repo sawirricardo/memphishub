@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Header, Grid, Input, Segment } from 'semantic-ui-react'
+import { Button, Form, Header, Input, Container } from 'semantic-ui-react'
 import jsonp from "jsonp"
 import PropTypes from 'prop-types';
 
@@ -41,40 +41,37 @@ class Mailchimp extends React.Component {
         const { messages, fields, styles, className } = this.props;
         const { status } = this.state;
         return (
-            <Segment>
-                <Form onSubmit={this.handleSubmit.bind(this)} className={className} size="large">
-                    <Form.Field>
-                        <Header textAlign='center'>Get new events update in your inbox, everyday 👇</Header>
-                        {fields.map(input =>
-                            <Input key={Math.random()}
-                                onBlur={({ target }) => this.setState({ [input.name]: target.value })}
-                                placeholder={input.placeholder}
-                                name={input.name}
-                                type={input.type}
-                                defaultValue={this.state[input.name]} 
-                                size="large"
-                            />
-                        )}
-                    </Form.Field>
-                    
-                        <Button
-                            fluid
-                            color="blue"
-                            disabled={status === "sending" || status === "success"}
-                            type="submit"
-                        >
-                            {messages.button}
-                        </Button>
-                    
-                    <Form.Field className='msg-alert' >
-                        {status === "sending" && <p style={styles.sendingMsg}>{messages.sending}</p>}
-                        {status === "success" && <p style={styles.successMsg}>{messages.success}</p>}
-                        {status === "duplicate" && <p style={styles.duplicateMsg}>{messages.duplicate}</p>}
-                        {status === "empty" && <p style={styles.errorMsg}>{messages.empty}</p>}
-                        {status === "error" && <p style={styles.errorMsg}>{messages.error}</p>}
-                    </Form.Field>
-                </Form>
-            </Segment>
+            <Form onSubmit={this.handleSubmit.bind(this)} className={className} size="large">
+                <Form.Field>
+                    <Header textAlign='center'>Get new events update in your inbox, everyday 👇</Header>
+                    {fields.map(input =>
+                        <Input key={Math.random()}
+                            onBlur={({ target }) => this.setState({ [input.name]: target.value })}
+                            placeholder={input.placeholder}
+                            name={input.name}
+                            type={input.type}
+                            defaultValue={this.state[input.name]} 
+                            size="large"
+                        />
+                    )}
+                </Form.Field>
+                <Container textAlign="center">
+                    <Button
+                        color="blue"
+                        disabled={status === "sending" || status === "success"}
+                        type="submit"
+                    >
+                        {messages.button}
+                    </Button>
+                </Container>
+                <Form.Field className='msg-alert' >
+                    {status === "sending" && <p style={styles.sendingMsg}>{messages.sending}</p>}
+                    {status === "success" && <p style={styles.successMsg}>{messages.success}</p>}
+                    {status === "duplicate" && <p style={styles.duplicateMsg}>{messages.duplicate}</p>}
+                    {status === "empty" && <p style={styles.errorMsg}>{messages.empty}</p>}
+                    {status === "error" && <p style={styles.errorMsg}>{messages.error}</p>}
+                </Form.Field>
+            </Form>
         );
     }
 }

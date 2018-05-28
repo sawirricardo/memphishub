@@ -12,8 +12,8 @@ const EventDescription = (props) => {
 
     return (
         <React.Fragment>
-            <Container text>
-                <Header as="h3">About this Event</Header>
+            <Container>
+                <Header as="h1">About this Event</Header>
                 {ReactHtmlParser(description)}
             </Container>
         </React.Fragment>

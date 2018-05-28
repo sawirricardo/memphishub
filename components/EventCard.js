@@ -44,6 +44,7 @@ class EventCard extends React.Component {
                         content:`${isfree ? "Free" : "Paid"}`, 
                         ribbon: true
                     }}
+                    fluid
                 />
                 <Card.Content>
                 <Card.Header>{eventname}</Card.Header>
