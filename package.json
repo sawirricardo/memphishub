@@ -24,8 +24,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
-    "build": "./node_modules/next/dist/bin/next build",
-    "start": "next start -p %PORT%",
+    "build": "next build",
+    "start": "next start",
     "heroku-postbuild": "npm run build"
   },
   "author": "Ricardo Sawir",
