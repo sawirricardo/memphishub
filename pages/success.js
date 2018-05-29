@@ -19,7 +19,7 @@ const SuccessPage = (props) => {
                     Browse more Events
                 </Button>
             </Link>
-            <Link href={`/contactus`} prefetch passHref>
+            <Link href={`/contactus?id=feedback`} prefetch passHref>
                 <Button>
                     Give MemphisHub Feedback
                 </Button>

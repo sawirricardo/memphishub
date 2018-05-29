@@ -2,25 +2,31 @@ import React from 'react';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import EventList from '../components/EventList';
-import { Card, Header, Segment, Button } from 'semantic-ui-react';
+import { Card, Header, Segment, Button, Divider, Grid, Menu } from 'semantic-ui-react';
 import 'isomorphic-unfetch';
 
 const BrowseEventsFreeOrPaid = (props) => {
     
     return(
         <Layout title={`${props.url.query.price} events in Memphis | MemphisHub`}>
-            <Segment clearing>
-                <Header as="h1" floated="left">Browse {props.url.query.price} events | Showing {props.events.pagination.page_size} events from {props.events.pagination.object_count} events</Header>
-                <Button.Group floated="right">
-                    <Link href="/browseeventspricecategory?price=free" passHref>
-                        <Button color='red'>Top Free Events</Button>
-                    </Link>
-                    <Button.Or />
-                    <Link href="/browseeventspricecategory?price=paid" passHref>
-                        <Button color='yellow'>Top Paid Events</Button>
-                    </Link>
-                </Button.Group>
-            </Segment>
+            <Grid centered>
+                <Grid.Row>
+                    <Header as="h1">Browse {props.url.query.price} events | Showing {props.events.pagination.page_size} events from {props.events.pagination.object_count} events</Header>
+                </Grid.Row>
+                <Grid.Row>
+                    <Menu text>
+                        <Menu.Item header>Sort By</Menu.Item>
+                        <Link href="/browseeventspricecategory?price=free" passHref>
+                            <Menu.Item>Top Free Events</Menu.Item>
+                        </Link>
+                        
+                        <Link href="/browseeventspricecategory?price=paid" passHref>
+                            <Menu.Item>Top Paid Events</Menu.Item>
+                        </Link>
+                    </Menu>
+                </Grid.Row>
+            </Grid>
+            <Divider />
             <EventList events={props.events.events}/>
             
         </Layout>

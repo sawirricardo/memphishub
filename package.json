@@ -4,6 +4,7 @@
   "description": "A webApp for events update dedicated to Memphis, TN",
   "main": "index.js",
   "dependencies": {
+    "cross-env": "^5.1.6",
     "isomorphic-unfetch": "^2.0.0",
     "jsonp": "^0.2.1",
     "moment": "^2.22.1",

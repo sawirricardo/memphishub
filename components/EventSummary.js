@@ -33,7 +33,7 @@ class EventSummary extends React.Component {
             <React.Fragment>
                 <Grid stackable>
                     <Grid.Column floated="left" width={10}>
-                        <Image size='massive' src={image} fluid/>
+                        <Image size='massive' src={image}/>
                     </Grid.Column>
                     <Grid.Column floated="right" width={6}>
                         <Header as="h1" dividing>{name}</Header>

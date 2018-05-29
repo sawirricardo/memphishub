@@ -47,38 +47,35 @@ class MailchimpForRegisteringEvents extends React.Component {
         const { status, loadingStatus, errorStatus } = this.state;
         return (
                 <Form onSubmit={this.handleSubmit.bind(this)} className={className} size="large" loading={loadingStatus} error={errorStatus}>
-                    <input type="email" name="email" style={{display: "none"}} />
-                    <input type="password" name="password" style={{display: "none"}} />
-                        {fields.map(input =>
-                            <Form.Field key={Math.random()} >
-                            <Header as="h3" key={Math.random()}>{input.name}</Header>
-                            <Input key={Math.random()}
-                                onBlur={({ target }) => this.setState({ [input.name]: target.value })}
-                                placeholder={input.placeholder}
-                                name={input.name}
-                                type={input.type}
-                                defaultValue={this.state[input.name]} 
-                                size="large"
-                            />
-                            </Form.Field>
-                        )}
-                        <Container textAlign='center'>
-                            <Button
-                                color="green"
-                                disabled={status === "sending" || status === "success"}
-                                type="submit"
-                            >
-                                {messages.button}
-                            </Button>
-                            
-                            <Message error>
-                                <Message.Header>Error!</Message.Header>
-                                {status === "duplicate" && <p>{messages.duplicate}</p>}
-                                {status === "empty" && <p>{messages.empty}</p>}
-                                {status === "error" && <p>{messages.error}</p>}
-                            </Message>
-                        </Container>
-                    
+                    {fields.map(input =>
+                        <Form.Field key={Math.random()}>
+                        <Header as="h3" key={Math.random()}>{input.name}</Header>
+                        <Input key={Math.random()}
+                            onBlur={({ target }) => this.setState({ [input.name]: target.value })}
+                            placeholder={input.placeholder}
+                            name={input.name}
+                            type={input.type}
+                            defaultValue={this.state[input.name]} 
+                            size="large"
+                        />
+                        </Form.Field>
+                    )}
+                    <Container textAlign='center'>
+                        <Button
+                            color="green"
+                            disabled={status === "sending" || status === "success"}
+                            type="submit"
+                        >
+                            {messages.button}
+                        </Button>
+                        
+                        <Message error>
+                            <Message.Header>Error!</Message.Header>
+                            {status === "duplicate" && <p>{messages.duplicate}</p>}
+                            {status === "empty" && <p>{messages.empty}</p>}
+                            {status === "error" && <p>{messages.error}</p>}
+                        </Message>
+                    </Container>
                 </Form>
             
         );

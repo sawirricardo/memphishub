@@ -6,7 +6,7 @@ import EventDescription from '../components/EventDescription';
 import EventDetails from '../components/EventDetails'
 import EventMap from '../components/EventMap';
 
-import { Segment, Grid, GridRow, Divider, Button, Icon } from 'semantic-ui-react';
+import { Segment, Grid, GridRow, Divider, Button, Icon, Responsive, Menu } from 'semantic-ui-react';
 
 const EventPage = (props) => {
     return (
@@ -23,18 +23,30 @@ const EventPage = (props) => {
                 venue={props.events.venue_id}
             />
             <Divider />
-                <Grid stackable reversed='computer'>
-                <Grid.Row>
-                    <Grid.Column floated="right" width={6} >
-                        <Link href={`/checkout?eventid=${props.events.id}`} prefetch passHref>
-                            <Button as="a" primary fluid>
-                                JOIN THIS EVENT
-                            </Button>
-                        </Link>
-                    </Grid.Column>
-                </Grid.Row>
-                </Grid>
-            <Divider />
+                {/* this is for Desktop ONLY */}
+                <Responsive {...Responsive.onlyComputer}>
+                    <Grid stackable reversed='computer'>
+                        <Grid.Row>
+                            <Grid.Column floated="right" width={6} >
+                                <Link href={`/checkout?eventid=${props.events.id}`} prefetch passHref>
+                                    <Button as="a" primary fluid>
+                                        JOIN THIS EVENT
+                                    </Button>
+                                </Link>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                    <Divider />
+                </Responsive>
+                {/* this is for mobile ONLY */}
+                <Responsive {...Responsive.onlyMobile}>
+                    <Link href={`/checkout?eventid=${props.events.id}`} prefetch passHref>
+                        <Button as="a" primary fluid>
+                            JOIN THIS EVENT
+                        </Button>
+                    </Link>
+                    <Divider />
+                </Responsive>  
             <Grid stackable reversed='computer'>
                 <Grid.Row>
                 <Grid.Column floated="right" width={6}>

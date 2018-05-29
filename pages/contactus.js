@@ -4,12 +4,12 @@ import { Container, Segment, Header } from 'semantic-ui-react';
 import MailchimpContactUs from '../components/MailchimpForContactUs';
 
 
-const ContactUsPage = () => {
+const ContactUsPage = (props) => {
     return (
         <React.Fragment>
             <Layout title="Contact Us | MemphisHub">
                 <Container text>
-                    <Header as="h1" attached="top" textAlign="center">Give us a shout!</Header>
+                    <Header as="h1" attached="top" textAlign="center">Give us your {props.url.query.id}!</Header>
                     <Segment attached> 
                         <MailchimpContactUs
                             action="https://github.us18.list-manage.com/subscribe/post?u=fb17d3eb8c27deaae717f1c3f&amp;id=db46e57571"

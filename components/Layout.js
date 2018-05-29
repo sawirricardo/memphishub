@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Container, Segment, Grid, Header, List } from 'semantic-ui-react';
+import { Container, Segment, Grid, Header, List, Responsive } from 'semantic-ui-react';
 import Footer from './Footer';
-import ResponsiveContainer from './ResponsiveContainer';
+import Headbar from './Headbar';
 
-const Layout = ({ children, title = ''}) => (
+const Layout = ({ children, title = ''}) => {
+    return (
         <React.Fragment>
             <Head>
                 <title>{title}</title>
@@ -18,12 +19,20 @@ const Layout = ({ children, title = ''}) => (
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
                 <link rel='icon' type='image/x-icon' href='../static/favicon.ico' />
             </Head>
-            <ResponsiveContainer>
-            <Container style={{paddingTop: "3em", paddingBottom: "4em"}}>{children}</Container>
-            </ResponsiveContainer>
-            <Footer />
-            
+            <Responsive {...Responsive.onlyComputer}>
+                <Headbar>
+                    <Container style={{paddingTop: "10vh", paddingBottom: "4em"}}>{children}</Container>
+                    <Footer />
+                </Headbar>
+            </Responsive>
+            <Responsive {...Responsive.onlyMobile}>
+                <Headbar>
+                    <Container style={{paddingTop: "5vh", paddingBottom: "1vh"}}>{children}</Container>
+                    <Footer />
+                </Headbar>
+            </Responsive>
         </React.Fragment>
-)
+    )
+}
 
 export default Layout;

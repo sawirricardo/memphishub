@@ -43,11 +43,9 @@ class EventListPopular extends React.Component {
         return (
             <React.Fragment> 
                 <Container>  
-                <Grid>
+                <Grid centered>
                     <Grid.Row>   
-                        <Container textAlign='center'>
-                            <Header as="h1">Popular Events in Memphis</Header> 
-                        </Container>
+                        <Header as="h1">Popular Events in Memphis</Header> 
                     </Grid.Row>
                     <Grid.Row>  
                         <Card.Group stackable itemsPerRow={3}>
@@ -55,11 +53,9 @@ class EventListPopular extends React.Component {
                         </Card.Group>
                     </Grid.Row>
                     <Grid.Row>
-                        <Container textAlign='center'> 
-                                <Link href='/browseeventssortby?sort_by=best' passHref>
-                                <Button>View All Popular Events</Button>
-                            </Link>
-                        </Container>
+                        <Link href='/browseeventssortby?sort_by=best' passHref>
+                            <Button positive>View All Popular Events</Button>
+                        </Link>
                     </Grid.Row>
                 </Grid>
                 </Container>

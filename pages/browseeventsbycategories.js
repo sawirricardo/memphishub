@@ -1,16 +1,19 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import EventList from '../components/EventList';
-import { Card, Header } from 'semantic-ui-react';
+import { Card, Header, Segment, Divider } from 'semantic-ui-react';
 import 'isomorphic-unfetch';
 
 const BrowseEventsByCategories = ( props ) => {
     const { events } = props
     const areThereMuchEvents = events.pagination.page_size < events.pagination.object_count
     return(
-        <Layout title={`${events.pagination.object_count}Events in Memphis`}>
-            <Header as="h1">
-                Showing {areThereMuchEvents ? events.pagination.page_size : events.pagination.object_count} events from { events.pagination.object_count} total events</Header>
+        <Layout title={`${events.pagination.object_count} events in Memphis`}> 
+            <Segment basic>
+                <Header as="h1" textAlign="center">
+                    Showing {areThereMuchEvents ? events.pagination.page_size : events.pagination.object_count} events from { events.pagination.object_count} total events
+                </Header>
+            </Segment>
             <EventList events={events.events} />
         </Layout>
     )

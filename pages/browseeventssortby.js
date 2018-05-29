@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link'
 import Layout from '../components/Layout';
 import EventList from '../components/EventList';
-import { Card, Header, Segment, Button, Divider } from 'semantic-ui-react';
+import { Card, Header, Segment, Button, Divider, Menu, Container, Grid } from 'semantic-ui-react';
 import 'isomorphic-unfetch';
 
 const BrowseEventsSortedBy = (props) => {
@@ -10,22 +10,25 @@ const BrowseEventsSortedBy = (props) => {
     const areThereMuchEvents = events.pagination.page_size < events.pagination.object_count;
     return(
         <Layout title={`${props.url.query.sort_by} events in Memphis | MemphisHub`}>
-            <Segment clearing basic>
-                <Header as="h1" floated="left">Showing {areThereMuchEvents ? events.pagination.page_size : events.pagination.object_count} events from {props.events.pagination.object_count} events</Header>
-                <Button.Group floated="right">
+            <Grid centered>
+                <Grid.Row>
+                    <Header as="h1">Showing {areThereMuchEvents ? events.pagination.page_size : events.pagination.object_count} events from {props.events.pagination.object_count} events</Header>
+                </Grid.Row>
+                <Grid.Row>
+                <Menu text>
+                    <Menu.Item header>Sort By</Menu.Item>
                     <Link href="/browseeventssortby?sort_by=best" passHref>
-                        <Button color='green'>Popularity</Button>
+                        <Menu.Item name='Popularity'/>
                     </Link>
-                    <Button.Or />
                     <Link href="/browseeventssortby?sort_by=-date" passHref>
-                        <Button color='yellow'>Upcoming</Button>
+                        <Menu.Item name='Upcoming' />
                     </Link>
-                    <Button.Or />
                     <Link href="/browseeventssortby?sort_by=distance" passHref>
-                        <Button color='yellow'>Distance</Button>
+                        <Menu.Item name='Distance' />
                     </Link>
-                </Button.Group>
-            </Segment>
+                </Menu>
+                </Grid.Row>
+            </Grid>
             <Divider />
             <EventList events={props.events.events}/>
         </Layout>

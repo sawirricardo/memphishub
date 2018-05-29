@@ -5,11 +5,11 @@ import Link from 'next/link';
 const CategoryCard = (props) => {
     return (
         <Link href={`/browseeventsbycategories?categories=${props.categoryid}`} passHref>
-        <Card as="a">
-            <Card.Content>
-            <Card.Header>{props.name}</Card.Header>
-            </Card.Content>
-        </Card>
+            <Card as="a">
+                <Card.Content>
+                    <Card.Header>{props.name}</Card.Header>
+                </Card.Content>
+            </Card>
         </Link>
     ); 
 }
