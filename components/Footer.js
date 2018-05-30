@@ -57,7 +57,7 @@ const Footer = () => {
                 <br />
                 <List horizontal inverted divided link>
                     <Link href="/about" passHref><List.Item as='a'>About Us</List.Item></Link>
-                    <Link href="/contactus" passHref><List.Item as='a'>Contact Us</List.Item></Link>
+                    <Link href="/contactus?id=shout" passHref><List.Item as='a'>Contact Us</List.Item></Link>
                     <List.Item as='a' href='#'>Terms and Conditions</List.Item>
                     <Link href="/privacypolicy" passHref><List.Item as='a'>Privacy Policy</List.Item></Link>
                 </List>
